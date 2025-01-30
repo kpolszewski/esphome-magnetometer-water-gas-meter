@@ -378,7 +378,7 @@ sensor:
     filters:
       - or:
           - throttle: 60s
-          - delta: 0.01
+          - delta: 0
 
   - platform: template
     id: ${prefix_id}sensor_flow
@@ -394,4 +394,4 @@ sensor:
     filters:
       - or:
           - throttle: 60s
-          - delta: 0.01
+          - delta: 0
