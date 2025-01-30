@@ -252,8 +252,9 @@ button:
             ESP_LOGE("${prefix_id}calibration", "Calibration failed. No axis had a range of at least %.0f", min_axis_range);
             return;
           }
-          float lower_threshold = min + (max - min) / 2 - 5;
-          float upper_threshold = min + (max - min) / 2 + 5;
+          float tolerance = 20.0 / min_axis_range;
+          float lower_threshold = min + (max - min) / 2 - tolerance;
+          float upper_threshold = min + (max - min) / 2 + tolerance;
           ESP_LOGI("${prefix_id}calibration", "Selected %s axis with lower threshold: %.2f and upper threshold: %.2f",
                    axis_with_largest_range.c_str(), lower_threshold, upper_threshold);
           id(${prefix_id}axis).make_call().set_option(axis_with_largest_range).perform();
